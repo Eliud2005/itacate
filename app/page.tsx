@@ -6,6 +6,7 @@ import AboutUs from "./company/aboutus/page";
 import Gallery from "./sections/Gallery";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import Chatbot from "./_components/Chatbot";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
    <Gallery />
    <Contact />
    <Footer />
+   <Chatbot />
    </>
   );
 }

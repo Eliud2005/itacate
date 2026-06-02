@@ -1,16 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useForm } from '@formspree/react';
 import { Phone, Mail, Calendar, Users, Send, CheckCircle, MapPin } from 'lucide-react';
 
 export default function Contact() {
-  const [formSent, setFormSent] = useState(false);
+  // Conectamos el hook oficial de Formspree con tu ID de formulario
+  const [state, handleSubmit] = useForm("mojbgdnz");
+  
+  // Estado para bloquear las fechas pasadas
+  const [minDate, setMinDate] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aquí puedes conectar tu lógica de envío (ej. Formspree o tu API)
-    setFormSent(true);
-  };
+  // Calculamos la fecha de hoy al cargar el componente en el navegador
+  useEffect(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    
+    // Formato requerido por HTML: YYYY-MM-DD
+    setMinDate(`${yyyy}-${mm}-${dd}`);
+  }, []);
 
   return (
     <section id="contact" className="py-20 lg:py-28 bg-white text-slate-900 scroll-mt-20">
@@ -35,7 +45,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Canales directos extraídos de tu tarjeta */}
             <div className="space-y-6 pt-2">
               
               {/* Teléfonos */}
@@ -46,14 +55,11 @@ export default function Contact() {
                 <div className="space-y-1">
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Teléfonos de Atención</p>
                   <div className="flex flex-col space-y-1">
-                    <a href="tel:+529515772145" className="text-base font-bold text-slate-950 hover:text-amber-600 transition-colors block">
-                      951 577 21 45
-                    </a>
                     <a href="tel:+529516424737" className="text-base font-bold text-slate-950 hover:text-amber-600 transition-colors block">
                       951 642 4737
                     </a>
-                    <a href="tel:+529511234567" className="text-base font-bold text-slate-950 hover:text-amber-600 transition-colors block">
-                      951 123 4567
+                    <a href="tel:+529515772145" className="text-base font-bold text-slate-950 hover:text-amber-600 transition-colors block">
+                      951 577 2145
                     </a>
                   </div>
                 </div>
@@ -77,8 +83,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Correo Electrónico</p>
-                  <a href="mailto:hola@itacatebanqueteria.com" className="text-base font-bold text-slate-950 hover:text-amber-600 transition-colors">
-                    hola@itacatebanqueteria.com
+                  <a href="mailto:itacatebanqueteria@gmail.com" className="text-base font-bold text-slate-950 hover:text-amber-600 transition-colors">
+                    itacatebanqueteria@gmail.com
                   </a>
                 </div>
               </div>
@@ -104,7 +110,7 @@ export default function Contact() {
           {/* --- FORMULARIO DE COTIZACIÓN (Derecha - 3 Columnas) --- */}
           <div className="lg:col-span-3 bg-slate-50 border border-slate-100 p-8 sm:p-10 rounded-3xl shadow-xl shadow-slate-200/50 relative">
             
-            {formSent ? (
+            {state.succeeded ? (
               <div className="py-12 text-center space-y-4 animate-fade-in">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle className="w-10 h-10" />
@@ -114,7 +120,7 @@ export default function Contact() {
                   Hemos guardado tus datos. En breve nos pondremos en contacto contigo para enviarte tu propuesta personalizada.
                 </p>
                 <button 
-                  onClick={() => setFormSent(false)} 
+                  onClick={() => window.location.reload()} 
                   className="mt-6 text-sm font-semibold text-amber-600 hover:text-amber-700 underline"
                 >
                   Enviar otra cotización
@@ -127,7 +133,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-xs font-bold text-slate-700 uppercase tracking-wider">Nombre Completo</label>
                     <input 
-                      type="text" id="name" required
+                      type="text" id="name" name="Nombre completo" required
                       className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900"
                       placeholder="Ej. Juan Pérez"
                     />
@@ -137,7 +143,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-xs font-bold text-slate-700 uppercase tracking-wider">Teléfono celular</label>
                     <input 
-                      type="tel" id="phone" required
+                      type="tel" id="phone" name="Teléfono" required
                       className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900"
                       placeholder="10 dígitos"
                     />
@@ -150,7 +156,7 @@ export default function Contact() {
                     <label htmlFor="eventType" className="text-xs font-bold text-slate-700 uppercase tracking-wider">Servicio Requerido</label>
                     <div className="relative">
                       <select 
-                        id="eventType" required
+                        id="eventType" name="Servicio requerido" required
                         className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900 appearance-none cursor-pointer"
                       >
                         <option value="">Selecciona un servicio...</option>
@@ -173,7 +179,7 @@ export default function Contact() {
                     <div className="relative">
                       <Users className="w-4 h-4 absolute left-4 top-3.5 text-slate-400" />
                       <input 
-                        type="number" id="guests" required min="1"
+                        type="number" id="guests" name="Número de invitados" required min="1"
                         className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900"
                         placeholder="Cantidad"
                       />
@@ -187,7 +193,11 @@ export default function Contact() {
                   <div className="relative">
                     <Calendar className="w-4 h-4 absolute left-4 top-3.5 text-slate-400" />
                     <input 
-                      type="date" id="date" required
+                      type="date" 
+                      id="date" 
+                      name="Fecha del evento" 
+                      required
+                      min={minDate} // <-- Aquí bloqueamos cualquier día anterior a hoy
                       className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900"
                     />
                   </div>
@@ -197,7 +207,7 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label htmlFor="details" className="text-xs font-bold text-slate-700 uppercase tracking-wider">Detalles adicionales o requerimientos especiales</label>
                   <textarea 
-                    id="details" rows={3}
+                    id="details" name="Detalles adicionales" rows={3}
                     className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-slate-900 placeholder:text-slate-400"
                     placeholder="Cuéntanos más sobre el menú que buscas, horarios o si requieres algún montaje en específico."
                   />
@@ -206,9 +216,10 @@ export default function Contact() {
                 {/* Botón de Envío */}
                 <button
                   type="submit"
-                  className="w-full bg-slate-950 text-white font-bold py-4 px-6 rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-950/10 flex items-center justify-center gap-2"
+                  disabled={state.submitting}
+                  className="w-full bg-slate-950 text-white font-bold py-4 px-6 rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-950/10 flex items-center justify-center gap-2 disabled:bg-slate-400"
                 >
-                  <Send className="w-4 h-4" /> Enviar Solicitud de Cotización
+                  <Send className="w-4 h-4" /> {state.submitting ? 'Enviando...' : 'Enviar Solicitud de Cotización'}
                 </button>
               </form>
             )}

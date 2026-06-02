@@ -76,10 +76,7 @@ export default function Services() {
                 </p>
               </div>
 
-              {/* Enlace visual inferior */}
-              <div className="pt-6 flex items-center text-xs font-bold text-amber-600 group-hover:text-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                Cotizar este servicio <span className="ml-1 transform group-hover:translate-x-1 transition-transform">→</span>
-              </div>
+              
             </div>
           ))}
         </div>
