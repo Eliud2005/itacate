@@ -43,21 +43,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Botones de Acción */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-              <a 
-                href="#contacto" 
-                className="bg-slate-950 text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-slate-950/10 hover:bg-slate-800 transition-all text-center"
-              >
-                Ver Paquetes
-              </a>
-              <a 
-                href="#menu" 
-                className="bg-white text-slate-800 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all text-center shadow-sm"
-              >
-                Explorar Menú
-              </a>
-            </div>
+           
+           
           </div>
 
           {/* Composición Visual / Imagen (Derecha) */}

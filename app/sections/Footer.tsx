@@ -39,11 +39,7 @@ export default function Footer() {
                   Galería
                 </Link>
               </li>
-              <li>
-                <Link href="/#contacto" className="hover:text-amber-500 transition-colors">
-                  Cotizar
-                </Link>
-              </li>
+           
             </ul>
           </div>
 
@@ -54,7 +50,7 @@ export default function Footer() {
               
               {/* Botón de Facebook */}
               <a 
-                href="https://facebook.com" target="_blank" rel="noreferrer"
+                href="https://www.facebook.com/profile.php?id=61589244178956&rdid=iaVEBYeUtuDaxyXT&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17o17VWhGR%2F#" target="_blank" rel="noreferrer"
                 className="hover:text-amber-500 p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all flex items-center justify-center"
                 aria-label="Facebook"
               >
@@ -65,7 +61,7 @@ export default function Footer() {
 
               {/* Botón de Instagram */}
               <a 
-                href="https://instagram.com" target="_blank" rel="noreferrer"
+                href="https://www.instagram.com/itacatebanqueteria/" target="_blank" rel="noreferrer"
                 className="hover:text-amber-500 p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all flex items-center justify-center"
                 aria-label="Instagram"
               >
@@ -78,7 +74,7 @@ export default function Footer() {
 
               {/* Botón de WhatsApp */}
               <a 
-                href="https://wa.me/521234567890" target="_blank" rel="noreferrer"
+                href="https://wa.me/9516424737" target="_blank" rel="noreferrer"
                 className="hover:text-amber-500 p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all flex items-center justify-center"
                 aria-label="WhatsApp"
               >

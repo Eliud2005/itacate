@@ -38,7 +38,6 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8 font-medium text-slate-600">
             <a href="#services" className="hover:text-amber-600 transition-colors">Servicios</a>
             <a href="#gallery" className="hover:text-amber-600 transition-colors">Galería</a>
-            <a href="#aboutus" className="hover:text-amber-600 transition-colors">Nosotros</a>
             <a 
               href="#contact" 
               className="bg-amber-600 text-white px-5 py-2.5 rounded-xl shadow-sm hover:bg-amber-700 transition-all font-semibold flex items-center gap-2"
