@@ -55,10 +55,7 @@ const FAQ_DATA = [
         q: "¿Cómo se realiza el apartado y cuáles son las formas de pago?",
         a: "La fecha se congela formalmente con un 50% de anticipo al firmar el contrato. El 50% restante se liquida de 7 a 10 días antes del evento. Aceptamos transferencias bancarias, depósitos y efectivo."
       },
-      {
-        q: "¿Eiten opciones de facturación?",
-        a: "Sí, todos nuestros servicios son facturables. Los precios mostrados de manera ordinaria no incluyen el IVA, por lo que se sumará el 16% en caso de requerir factura fiscal."
-      }
+     
     ]
   }
 ];
