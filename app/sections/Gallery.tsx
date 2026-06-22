@@ -12,17 +12,17 @@ export default function Gallery() {
     },
     {
       url: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop",
-      title: "Platillos Fuertes Gourmet",
+      title: "Platillos Gourmet",
       size: "md:col-span-1 md:row-span-1"
     },
     {
       url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop",
-      title: "Atención y Mesería en Salones",
+      title: "Servicios de A y B",
       size: "md:col-span-1 md:row-span-2" // Tarjeta alta
     },
     {
       url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop",
-      title: "Entradas y Emplatados",
+      title: "Catas y Maridajes",
       size: "md:col-span-1 md:row-span-1"
     },
     {

@@ -28,7 +28,17 @@ export default function Services() {
       icon: <Cookie className="w-6 h-6" />,
       title: "Mesas de Snacks",
       description: "Estaciones de antojos, postres y bocadillos finamente decoradas que deleitarán visualmente y al paladar de tus comensales."
-    }
+    },
+    {
+      icon: <Cookie className="w-6 h-6" />,
+      title: "Coffee Break",
+      description: "Descansa y recarga energías con nuestro servicio de coffee break, incluyendo bebidas calientes y aperitivos deliciosos."
+    },
+    {
+      icon: <Cookie className="w-6 h-6" />,
+      title: "Menú degustaciones",
+      description: "Catas de vinos, maridajes y experiencias sensoriales diseñadas para los paladares más exigentes en eventos exclusivos."
+    },
   ];
 
   return (
